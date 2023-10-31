@@ -1,0 +1,9 @@
+namespace: bounverif
+name: autoware_perception
+description: Ansible scripts for Autoware Perception component
+repository: github.com/bounverif/autoware-collections
+version: 0.1.0
+readme: README.md
+authors:
+  - Mehmet Saracoglu <mehmet.saracoglu@boun.edu.tr>
+  - Dogan Ulus <dogan.ulus@boun.edu.tr>
