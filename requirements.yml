@@ -3,7 +3,7 @@
 # See: https://docs.ansible.com/ansible/latest/galaxy/user_guide.html
 #
 # Local Use:  ansible-galaxy install -r requirements.yml --force
-# Remote Use: ansible-galaxy collection install git+https://github.com/bounverif/autoware-containers.git
+# Remote Use: ansible-galaxy collection install git+https://github.com/bounverif/autoware-collections.git
 
 collections:
   - name: git+https://github.com/bounverif/ansible-collection-ros.git
