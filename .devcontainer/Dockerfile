@@ -7,13 +7,13 @@ ENV LANGUAGE="en_US.UTF-8"
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install \
-    sudo \
-    git \
-    make \
-    tar curl wget zip unzip gnupg2 \
-    python3-pip \
-    openssh-client openssh-server \
-    locales \
+      sudo \
+      git \
+      make \
+      tar curl wget zip unzip gnupg2 \
+      python3-pip \
+      openssh-client openssh-server \
+      locales \
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* 
 
 RUN locale-gen --purge "en_US.UTF-8"
