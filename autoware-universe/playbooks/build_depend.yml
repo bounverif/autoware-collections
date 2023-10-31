@@ -1,11 +1,17 @@
-# General Vars
-ros_workspace: /tmp/autoware
-ros_source_dir:  "{{ ros_workspace }}/src"
-ros_build_dir: "{{ ros_workspace }}/build"
-ros_install_dir: "/opt/autoware/{{ ros_distro }}"
+---
+- name: Build Autoware Universe Dependencies
+  hosts: localhost
+  connection: local
+  vars:
+    rosdep_install_dependency_types:
+      - buildtool
+      - buildtool_export
+      - build_export
+      - build
 
-# Requirement role vars
-ros_distro: humble
-ros_distro_type: base
-ros_rmw_implementation: rmw_cyclonedds_cpp
-
+  roles:
+    - role: bounverif.ros.ros2_install
+    - role: bounverif.autoware_universe.ros_requirements_install
+    - role: bounverif.ros.cuda_toolkit_install
+    - role: bounverif.ros.repositories
+    - role: bounverif.ros.rosdep_install
