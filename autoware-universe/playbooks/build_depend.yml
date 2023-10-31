@@ -15,6 +15,3 @@
     - role: bounverif.ros.cuda_toolkit_install
     - role: bounverif.ros.repositories
     - role: bounverif.ros.rosdep_install
-
-  repositories_files:
-    - ../files/build_depends.repos
