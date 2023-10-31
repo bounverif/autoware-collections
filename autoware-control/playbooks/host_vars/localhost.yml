@@ -2,7 +2,7 @@
 ros_workspace: /tmp/autoware
 ros_source_dir:  "{{ ros_workspace }}/src"
 ros_build_dir: "{{ ros_workspace }}/build"
-ros_install_dir: "/opt/autoware/control/{{ ros_distro }}"
+ros_install_dir: "/opt/autoware/{{ ros_distro }}/control/"
 
 # Requirement role vars
 ros_distro: humble
@@ -24,11 +24,11 @@ repositories:
     dest: core/autoware_common
     version: main
   - url: https://github.com/autowarefoundation/autoware_adapi_msgs.git
-    dest: "{{ ros_source_dir }}/autoware_adapi_msgs"
+    dest: core/autoware_adapi_msgs
     version: main
   - url: https://github.com/tier4/autoware_auto_msgs.git
-    dest: external/autoware_auto_msgs
+    dest: universe/external/autoware_auto_msgs
     version: tier4/main
   - url: https://github.com/tier4/tier4_autoware_msgs.git
-    dest: external/tier4_autoware_msgs
+    dest: universe/external/tier4_autoware_msgs
     version: tier4/universe

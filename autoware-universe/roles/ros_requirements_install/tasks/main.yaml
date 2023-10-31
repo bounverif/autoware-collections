@@ -1,25 +1,7 @@
 - name: Get dash-case name of rmw_implementation
-  ansible.builtin.shell: bash -c 'sed -e "s/_/-/g" <<< $(echo {{ rmw_implementation }})'
+  ansible.builtin.shell: bash -c 'sed -e "s/_/-/g" <<< $(echo {{ ros_rmw_implementation }})'
   register: rmw_implementation__dash_case_rmw_implementation
   changed_when: false
-
-- name: Install pip Packages
-  ansible.builtin.pip:
-    name: "{{ item.name }}"
-    state: "{{ item.state | default(omit) }}"
-    version: "{{ item.version | default(omit) }}"
-    executable: pip3
-  loop: "{{ pip_packages }}"
-  changed_when: true
-
-- name: Install apt Packages
-  become: true
-  ansible.builtin.apt:
-    name: "{{ item.name }}"
-    state: "{{ item.state | default(omit) }}"
-    update_cache: true
-  loop: "{{ apt_packages }}"
-  changed_when: true
 
 - name: Install egm2008-1
   become: true
@@ -31,7 +13,7 @@
 - name: Add RMW_IMPLEMENTATION to .bashrc
   ansible.builtin.lineinfile:
     dest: ~/.bashrc
-    line: export RMW_IMPLEMENTATION={{ rmw_implementation }}
+    line: export RMW_IMPLEMENTATION={{ ros_rmw_implementation }}
     state: present
     create: true
     mode: '644'
