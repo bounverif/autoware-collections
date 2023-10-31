@@ -1,0 +1,35 @@
+# General Vars
+ros_workspace: /tmp/autoware-istanbul/ros/autoware_control
+ros_source_dir:  "{{ ros_workspace }}/src"
+ros_build_dir: "{{ ros_workspace }}/build"
+ros_install_dir: "/opt/bouncmpe/{{ ros_distro }}"
+
+# Requirement role vars
+ros_distro: humble
+ros_distro_type: base
+collection_name: autoware_control
+rmw_implementation: rmw_cyclonedds_cpp
+colcon_packages_up_to: ""
+
+repositories:
+  - url: https://github.com/autowarefoundation/autoware.universe.git
+    dest: "{{ ros_source_dir }}/"
+    version: main
+  # Core
+  - url: https://github.com/autowarefoundation/autoware_msgs.git
+    dest: "{{ ros_source_dir }}/autoware_msgs"
+    version: main
+  - url: https://github.com/autowarefoundation/autoware_common.git
+    dest: "{{ ros_source_dir }}/autoware_common"
+    version: main
+  - url: https://github.com/autowarefoundation/autoware_adapi_msgs.git
+    dest: "{{ ros_source_dir }}/autoware_adapi_msgs"
+    version: main
+  - url: https://github.com/tier4/autoware_auto_msgs.git
+    dest: "{{ ros_source_dir }}/external/autoware_auto_msgs"
+    version: tier4/main
+  # Universe
+  - url: https://github.com/tier4/tier4_autoware_msgs.git
+    dest: "{{ ros_source_dir }}/external/tier4_autoware_msgs"
+    version: tier4/universe
+
