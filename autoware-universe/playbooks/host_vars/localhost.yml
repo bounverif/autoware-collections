@@ -7,7 +7,8 @@ ros_install_dir: "/opt/autoware/{{ ros_distro }}"
 # Requirement role vars
 ros_distro: humble
 ros_distro_type: base
+collection_name: autoware_universe
 ros_rmw_implementation: rmw_cyclonedds_cpp
 
 repositories_files:
-  - build_depends.repos
+  - build_depend.repos

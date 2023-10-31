@@ -8,9 +8,9 @@ ros_install_dir: "/opt/autoware/{{ ros_distro }}/control/"
 ros_distro: humble
 ros_distro_type: base
 collection_name: autoware_control
-rmw_implementation: rmw_cyclonedds_cpp
+ros_rmw_implementation: rmw_cyclonedds_cpp
 
-colcon_packages_up_to: 
+colcon_build_packages_up_to: 
   - "pure_pursuit"
 
 repositories:

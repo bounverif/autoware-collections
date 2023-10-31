@@ -1,4 +1,3 @@
- 
 ROS REQUIREMENTS INSTALL
 =========
 
@@ -9,12 +8,19 @@ Downloads required packages to build and run ROS packages properly.
 Requirements
 ------------
 
-Proper Ubuntu distribution and version must be provided in order to complete installation.
+ROS2 must be installed on the system.
+
+Role Variables
+--------------
+
+| Variable                | Required | Default      | Choices                   | Comments                                 |
+|-------------------------|----------|--------------|---------------------------|------------------------------------------|
+| ros_rmw_implementation  | yes      | `rmw_cyclonedds_cpp` | `rmw implementation string` | User must choose a rmw implementation file. Default one is provided as `rmw_cyclonedds_cpp`. |
 
 Dependencies
 ------------
 
-To run this role properly ROS2 must be installed on the system.
+To run this role properly ROS2 must be installed on the system. Otherwise some packages may not be installed correctly.
 
 Example Playbook
 ----------------
@@ -23,8 +29,10 @@ Example Playbook
 - name: Ros Requirements Install Role
   hosts: localhost
   connection: local
+  vars:
+    ros_rmw_implementation: rmw_cyclonedds_cpp
   roles:
-    - role: bounverif.ros.ros_requirements_install
+    - role: bounverif.autoware_universe.ros_requirements_install
 ```
 
 License
@@ -35,4 +43,4 @@ See [license.md](https://github.com/bounverif/ansible-collection-ros/blob/main/L
 Author Information
 ------------------
 
-https://github.com/bounverif/ansible-collection-ros
+https://github.com/bounverif/autoware-collections
