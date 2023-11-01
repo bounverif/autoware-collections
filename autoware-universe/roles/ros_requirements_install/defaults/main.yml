@@ -1,0 +1,5 @@
+apt_packages:
+  - { name: "geographiclib-tools", state: latest }
+  - { name: "ros-{{ ros_distro }}-plotjuggler-ros", state: latest }
+  - { name: "ros-{{ ros_distro }}-{{ rmw_implementation__dash_case_rmw_implementation.stdout }}", state: latest }
+  - { name: "python3-colcon-mixin", state: latest }
