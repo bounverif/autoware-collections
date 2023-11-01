@@ -1,0 +1,17 @@
+- name: Install packages
+  become: true
+  ansible.builtin.apt:
+    name: 
+      # - geographiclib-tools
+      - ros-{{ ros_distro }}-rmw-cyclonedds-cpp
+      - ros-{{ ros_distro }}-pacmod3
+      - ros-{{ ros_distro }}-osrf-testing-tools-cpp
+    state: present
+    update_cache: true
+  
+# - name: Install egm2008-1
+#   become: true
+#   ansible.builtin.command:
+#     cmd: geographiclib-get-geoids egm2008-1
+#     creates: /usr/share/GeographicLib/geoids/egm2008-1.pgm
+#   changed_when: true

@@ -9,9 +9,23 @@
       - build_export
       - build
 
-  roles:
-    - role: bounverif.ros.ros2_install
-    - role: bounverif.autoware_universe.ros_requirements_install
-    - role: bounverif.ros.cuda_toolkit_install
-    - role: bounverif.ros.repositories
-    - role: bounverif.ros.rosdep_install
+  tasks:
+    - name: Install CUDA Toolkit
+      ansible.builtin.include_role:
+        name: bounverif.ros.cuda_toolkit_install
+
+    - name: Install ROS2
+      ansible.builtin.include_role:
+        name: bounverif.ros.ros2_install
+
+    - name: Install specific distro dependencies
+      ansible.builtin.include_role:
+        name: bounverif.autoware_universe.distro_setup
+
+    - name: Install external repositories
+      ansible.builtin.include_role:
+        name: bounverif.ros.repositories
+
+    - name: Install rosdep dependencies
+      ansible.builtin.include_role:
+        name: bounverif.ros.rosdep_install

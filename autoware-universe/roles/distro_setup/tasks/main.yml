@@ -1,0 +1,11 @@
+- name: Install for Debian
+  ansible.builtin.include_tasks: debian_family_install.yml
+  when: hostvars[inventory_hostname].ansible_os_family == "Debian"
+
+- name: Install fo RedHat
+  ansible.builtin.include_tasks: redhat_family_install.yml
+  when: hostvars[inventory_hostname].ansible_os_family == "RedHat"
+
+- name: Install fo SUSE
+  ansible.builtin.include_tasks: suse_family_install.yml
+  when: hostvars[inventory_hostname].ansible_os_family == "Suse"
