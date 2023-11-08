@@ -4,6 +4,8 @@ description: Ansible scripts for Autoware Control component
 repository: github.com/bounverif/autoware-collections
 version: 0.1.0
 readme: README.md
+dependencies:
+  "git+https://github.com/bounverif/ansible-collection-ros.git": "main"
 authors:
   - Mehmet Saracoglu <mehmet.saracoglu@boun.edu.tr>
   - Dogan Ulus <dogan.ulus@boun.edu.tr>
