@@ -28,6 +28,6 @@ USER bouncmpe
 WORKDIR /home/bouncmpe
 
 RUN python3 -m pip install --upgrade pip
-RUN python3 -m pip install --user ansible ansible-lint
+RUN python3 -m pip install --user ansible ansible-lint molecule
 
 ENV PATH=/home/bouncmpe/.local/bin:$PATH
