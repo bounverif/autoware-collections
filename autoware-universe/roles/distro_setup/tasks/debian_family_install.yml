@@ -1,3 +1,11 @@
+- name: Add the Repository to Sources List
+  become: true
+  ansible.builtin.apt_repository:
+    repo: "deb [trusted=yes] https://s3.amazonaws.com/autonomoustuff-repo/ {{ ansible_distribution_release }} main"
+    state: present
+    filename: autonomoustuff-public
+    update_cache: true
+
 - name: Install packages
   become: true
   ansible.builtin.apt:
