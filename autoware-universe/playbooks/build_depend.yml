@@ -10,6 +10,10 @@
       - build
 
   tasks:
+    - name: Load collection vars
+      ansible.builtin.include_role:
+        name: bounverif.ros.collection_vars
+
     - name: Install CUDA Toolkit
       ansible.builtin.include_role:
         name: bounverif.ros.cuda_toolkit_install

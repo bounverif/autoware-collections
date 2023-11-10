@@ -2,5 +2,12 @@
 - name: Build Autoware Control
   hosts: localhost
   connection: local
-  roles:
-    - role: bounverif.ros.colcon_build
+
+  tasks:
+    - name: Load collection vars
+      ansible.builtin.include_role:
+        name: bounverif.ros.collection_vars
+
+    - name: Build ROS workspace using Colcon
+      ansible.builtin.include_role:
+        name: bounverif.ros.colcon_build
